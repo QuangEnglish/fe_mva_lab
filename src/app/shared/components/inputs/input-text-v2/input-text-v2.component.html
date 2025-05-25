@@ -1,0 +1,42 @@
+<nz-form-item>
+  <nz-form-label [nzRequired]="required" [nzFor]="ngControl.name?.toString()" [hidden]="hiddenLabel">{{label}}</nz-form-label>
+  <nz-form-control [nzErrorTip]="combineTpl">
+    <nz-input-group [nzSize]="nzSize" [nzSuffix]="inputClearTpl" [nz-tooltip]="(inputRef && inputRef.value ) ? inputRef.value : inputLabel">
+      <input
+        #inputRef
+        nz-input
+        [type]="typeInput"
+        [formControl]="ngControl ? $any(ngControl.control) : formController"
+        [placeholder]="placeHolder"
+        [disabled]="disabled"
+        (focus)="onFocus(inputRef.value)"
+        (blur)="onBlur(inputRef.value)"
+        (keydown)="onChange(inputRef.value)"
+        (keyup)="onChange(inputRef.value)"
+        no-space
+        [ngClass]="ngClass"
+        (ngModelChange)="onChangeValueSuggest($event)"
+        [nzAutocomplete]="auto"
+      />
+      <ng-template #inputClearTpl>
+        <i *ngIf="inputRef.value && isFocused && nzAllowClear"
+           nz-icon
+           class="ant-input-clear-icon"
+           nzTheme="fill"
+           nzType="close-circle"
+           (mousedown)="onClear(); inputRef.value"></i>
+      </ng-template>
+    </nz-input-group>
+    <nz-autocomplete #auto>
+      <nz-auto-option *ngFor="let option of filteredOptions" [nzValue]="option">
+        {{ option }}
+      </nz-auto-option>
+    </nz-autocomplete>
+    <ng-template #combineTpl let-control>
+      <app-inline-message [formController]="control"
+                          [field]="label || controlName || ngControl.name "
+                          [field2]="label2" [itemNumberLength]="itemNumberLength"
+      ></app-inline-message>
+    </ng-template>
+  </nz-form-control>
+</nz-form-item>

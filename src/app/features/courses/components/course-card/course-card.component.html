@@ -1,0 +1,24 @@
+<div *ngIf="course" class="card">
+  <div class="image-container">
+    <img ngSrc="{{course.imageUrl}}" alt="{{ course.title }}" width="200" height="200"/>
+  </div>
+  <div class="content">
+    <h3 class="title">{{ course.title }}</h3>
+    <div class="info">
+      <div class="lessons">
+        <span class="icon">📚</span> {{ course.lessons }} lessons
+      </div>
+      <div class="rating">
+        <span class="score">{{ course.rating }}</span> <span class="star">⭐</span>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="author">
+        <span>{{ course.author }}</span><h1>{{ 'HELLO' | translate }}</h1>
+      </div>
+      <div class="price">
+        {{ course.price }}
+      </div>
+    </div>
+  </div>
+</div>

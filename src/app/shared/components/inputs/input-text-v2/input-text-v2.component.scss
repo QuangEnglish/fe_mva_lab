@@ -1,0 +1,9 @@
+$colorText: #8A7070;
+
+input:disabled {
+  background: rgba(103, 102, 102, 0.2);
+}
+
+::placeholder {
+  color: $colorText !important;
+}

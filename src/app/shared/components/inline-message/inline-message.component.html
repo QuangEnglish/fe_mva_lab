@@ -1,0 +1,78 @@
+<div *ngIf="(formController.invalid && formController.dirty)">
+  <span *ngIf="formController.errors.required">
+    Vui lòng nhập {{field}}
+  </span>
+  <span *ngIf="formController.errors.moreThan">
+    Vui lòng nhập {{field}} lớn hơn {{field2}}
+  </span>
+  <span *ngIf="formController.errors.lessThan">
+    Vui lòng nhập {{field}} nhỏ hơn {{field2}}
+  </span>
+  <span *ngIf="formController.errors.notEqualZero">
+    Vui lòng nhập {{field}} khác 0
+  </span>
+  <span *ngIf="formController.errors.lessEqualThanToday">
+    Vui lòng nhập {{field}} nhỏ hơn hoặc bằng ngày hiện tại
+  </span>
+  <span *ngIf="formController.errors.moreEqualThan && !formController.errors.required">
+    Vui lòng nhập {{field}} lớn hơn hoặc bằng {{field2}}
+  </span>
+  <span *ngIf="formController.errors.lessEqualThan">
+    Vui lòng nhập {{field}} nhỏ hơn hoặc bằng {{field2}}
+  </span>
+  <span *ngIf="formController.errors.maxlength">
+    Vui lòng nhập {{field}} không quá {{formController.errors.maxlength?.requiredLength}} ký tự
+  </span>
+  <span *ngIf="formController.errors.minlength">
+    Vui lòng nhập {{field}} nhiều hơn {{formController.errors.minlength?.requiredLength}} ký tự
+  </span>
+  <span *ngIf="formController.errors.min">
+    Vui lòng nhập {{field}} lớn hơn {{formController.errors.min.min}}
+  </span>
+  <span *ngIf="formController.errors.multipleEmail && !formController.errors.maxlength">
+    Vui lòng nhập địa chỉ Email đúng định dạng
+  </span>
+  <span *ngIf="formController.errors.email && !formController.errors.maxlength">
+    Vui lòng nhập {{field}} đúng định dạng email
+  </span>
+  <span *ngIf="formController.errors.max">
+    Vui lòng nhập {{field}} không lớn hơn {{formController.errors.max.max}}
+  </span>
+  <span *ngIf="formController.errors.lessEqualThanTodayMonth">
+    Vui lòng nhập {{field}} nhỏ hơn hoặc bằng tháng hiện tại
+  </span>
+  <!--  //-->
+  <span *ngIf="formController.errors.pattern && !formController.errors.maxlength">
+    {{ message  }} không đúng định dạng
+  </span>
+  <span *ngIf="formController.errors.codeNoSpace && !formController.errors.maxlength">
+    {{ message  }} chỉ được phép nhập chữ cái không dấu, số và dấu _-
+  </span>
+  <span *ngIf="formController.errors.codeNoSpaceAnd && !formController.errors.maxlength">
+    {{ message  }} chỉ được phép nhập chữ cái không dấu, số và dấu _
+  </span>
+  <span *ngIf="formController.errors.noSpecialCharacters && !formController.errors.maxlength">
+    {{ message  }} chỉ được phép nhập chữ cái, số, khoảng trắng và dấu _-
+  </span>
+  <span *ngIf="formController.errors.duplicate">
+   Tài liệu đã được chọn, vui lòng chọn tài liệu khác
+  </span>
+  <span *ngIf="formController.errors.nonNumeric && !formController.errors.maxlength">
+   {{field}} chỉ cho phép nhập số
+  </span>
+  <span *ngIf="formController.errors.moreEqualThanDay && !formController.errors.required">
+    Vui lòng nhập {{field2}} lớn hơn hoặc bằng {{field}}
+  </span>
+  <span *ngIf="formController.errors.lessEqualThanDay">
+    Vui lòng nhập {{field}} nhỏ hơn hoặc bằng {{field2}}
+  </span>
+  <span *ngIf="formController.errors.codeNoSpaceAndCharacter && !formController.errors.maxlength">
+    {{ message  }} chỉ được phép nhập chữ cái không dấu, số và ký tự _
+  </span>
+  <span *ngIf="formController.errors.floatNumber02 && !formController.errors.maxlength">
+    {{ message }} chỉ được phép nhập số dương với phần thập phân tối đa 2 chữ số.
+  </span>
+  <span *ngIf="formController.errors.invalidNumberLength && !formController.errors.maxlength">
+    {{ message }} Chỉ nhập số nguyên dương nhỏ hơn hoặc bằng 100.
+  </span>
+</div>
